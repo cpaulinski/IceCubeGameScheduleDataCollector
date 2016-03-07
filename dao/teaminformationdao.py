@@ -1,13 +1,5 @@
 class TeamInformationDao():
-    teamID = 0
-    teamName = ""
-    numTotalGames = 0
-    numGamesAtLeastEleven = 0
-    gamesAtLeastEleven = []
-    numGamesNotOnTuesdayOrSaturday = 0
-    gamesNotOnTuesdayOrSaturday = []
-    
-    def init(self,  teamID,  teamName,  numTotalGames,  numGamesAtLeastEleven,  gamesAtLeastEleven,  numGamesNotOnTuesdayOrSaturday,  gamesNotOnTuesdayOrSaturday):
+    def initBaseTeamInformationDao(self,  teamID,  teamName,  numTotalGames,  numGamesAtLeastEleven,  gamesAtLeastEleven,  numGamesNotOnTuesdayOrSaturday,  gamesNotOnTuesdayOrSaturday):
         self.teamID = teamID
         self.teamName = teamName
         self.numTotalGames = numTotalGames
@@ -15,3 +7,6 @@ class TeamInformationDao():
         self.gamesAtLeastEleven = gamesAtLeastEleven
         self.numGamesNotOnTuesdayOrSaturday = numGamesNotOnTuesdayOrSaturday
         self.gamesNotOnTuesdayOrSaturday = gamesNotOnTuesdayOrSaturday
+
+    def __init__(self, teamName):
+        TeamInformationDao.initBaseTeamInformationDao(self, 0, teamName, 0, 0, [], 0, [])

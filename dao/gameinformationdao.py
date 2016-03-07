@@ -1,15 +1,7 @@
 import datetime
 
 class GameInformationDao():
-    gameID = ""
-    homeTeam = ""
-    awayTeam = ""
-    gameDate = datetime.date(0)
-    startTime = datetime.time(0, 0)
-    endTime = datetime.time(0, 0)
-    dayOfWeek = 0
-    
-    def init(self,  gameID,  homeTeam,  awayTeam,  gameDate,  startTime,  endTime,  dayOfWeek):
+    def initBaseGameInformationDao(self, gameID,  homeTeam,  awayTeam,  gameDate,  startTime,  endTime,  dayOfWeek):
         self.gameId = gameID
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
@@ -18,3 +10,12 @@ class GameInformationDao():
         self.endTime = gameDate
         self.dayOfWeek = dayOfWeek
         
+    def __init__(self):
+
+        self.gameID = ""
+        self.homeTeam = ""
+        self.awayTeam = ""
+        self.gameDate = datetime.date(2016,1,16)
+        self.startTime = datetime.time(0, 0)
+        self.endTime = datetime.time(0, 0)
+        self.dayOfWeek = 0
