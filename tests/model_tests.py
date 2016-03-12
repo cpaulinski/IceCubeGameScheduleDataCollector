@@ -46,18 +46,25 @@ class ModelTests(unittest.TestCase):
         endTime = datetime.time(12,20)
         dayOfWeek = 2
 
-        gamedao = GameInformationDao()
+        gameDao = GameInformationDao(homeTeam, awayTeam)
+        newGameDao = GameInformationDao(homeTeam, awayTeam, gameID, gameDate, startTime, endTime, dayOfWeek)
 
 #        gamedao = GameInformationDao.initBaseGameInformationDao(self, gameID, homeTeam, awayTeam, gameDate, startTime, endTime, dayOfWeek)
-        gamedaoList = [ gamedao ]
+        gamedaoList = [ gameDao ]
 
-        CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastEleven.append(gamedao)
-        self.assertListEqual(gamedaoList, CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastEleven)
+        CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList.append(gameDao)
+        self.assertListEqual(gamedaoList, CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList)
 
-        IceOTopesGamesAtLeastElevenList = CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastEleven
-        IceOTopesGamesAtLeastElevenList.append(gamedao)
+        IceOTopesGamesAtLeastElevenList = CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList
+        IceOTopesGamesAtLeastElevenList.append(gameDao)
         # does assertNotEqual ensure lists are checked correctly?
-        self.assertNotEqual(gamedaoList, CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastEleven)
+        self.assertNotEqual(gamedaoList, CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList)
 
-        CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastEleven[0].dayOfWeek = 0
+        self.assertEqual(len(CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList), 2)
 
+        for gamesInGameList in CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList:
+            self.assertEqual(7,gamesInGameList.dayOfWeek)
+
+        CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList[0].dayOfWeek = 0
+        firstGame = CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastElevenList[0]
+        self.assertNotEqual(7, firstGame.dayOfWeek)

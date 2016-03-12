@@ -27,8 +27,3 @@ DOneLeagueTeamList = [ "Ice Men",
 
 CLeagueTeamtoTeamInformationDaoDict = { teamName:TeamInformationDao(teamName) for teamName in CLeagueTeamList }
 DOneLeagueTeamtoTeamInformationDaoDict = { teamName:TeamInformationDao(teamName) for teamName in DOneLeagueTeamList }
-
-# CLeagueTeamToGamesAtLeastEleven = { teamName:[] for teamName in CLeagueTeamList }
-# CLeagueTeamToGamesNotOnTuesdaySaturday = { teamName:[] for teamName in CLeagueTeamList }
-# DOneLeagueTeamToGamesAtLeastEleven = { teamName:[] for teamName in DOneLeagueTeamList }
-# DOneLeagueTeamToGamesNotOnTuesdaySaturday = { teamName:[] for teamName in DOneLeagueTeamList }
