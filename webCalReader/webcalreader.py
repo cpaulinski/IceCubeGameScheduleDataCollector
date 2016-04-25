@@ -27,7 +27,7 @@ class WebcalReader():
         gameDao = GameInformationDao(homeTeam, awayTeam )
 
         if isCLeagueGame == True:
-            CLeagueTeamtoTeamInformationDaoDict.get(awayTeam).numGamesAtLeastEleven =
+            CLeagueTeamtoTeamInformationDaoDict.get(awayTeam).numGamesAtLeastEleven = CLeagueTeamtoTeamInformationDaoDict.get(awayTeam).numGamesAtLeastEleven + 1
         
     def addGameNotOnTuesdaySaturdayToTeam(self):
         print ("placeholder")
@@ -63,8 +63,8 @@ class WebcalReader():
         startDate.dt = startDate.dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
 
         if startDate.dt.time > timeElevenPM:
-            parse
             gameDao = GameInformationDao()
+            # parse
 
         #Return the day of the week as an integer, where Monday is 0 and Sunday is 6.
         dayOfWeek = startDate.dt.weekday()

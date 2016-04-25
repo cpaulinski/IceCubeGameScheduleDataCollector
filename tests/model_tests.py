@@ -14,8 +14,8 @@ class ModelTests(unittest.TestCase):
         CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").numGamesAtLeastEleven = 0
         CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").gamesAtLeastEleven = []
 
-    def tearDown(self):
-        print("Entering ModuleTests tearDown")
+    # def tearDown(self):
+    #     print("Entering ModuleTests tearDown")
 
     def testInitialization(self):
         self.assertEqual(0, CLeagueTeamtoTeamInformationDaoDict.get("Ice-o-Topes C").numGamesAtLeastEleven)

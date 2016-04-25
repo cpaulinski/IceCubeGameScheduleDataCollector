@@ -12,7 +12,7 @@ config = {
     'download_url': 'Where to download it.',
     'author_email': 'My email.',
     'version': '0.1',
-    'install_requires': ['nose', 'urllib2', 'pytz'],
+    'install_requires': ['nose', 'urllib2', 'pytz', 'python-dateutil'],
     'packages': ['main'],
     'scripts': [],
     'name': 'IceCubeGameScheduleDataCollector'
